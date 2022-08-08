@@ -134,7 +134,7 @@ const readmeContentQuestions = [
         type: 'checkbox',
         name: 'license',
         message: "What license's were used in this project? (Check all that apply)",
-        choices: ['Apache License 2.0', 'BSD 3-Clause license', 'BSD 2-Clause license', 'GNU General Public License (GPL)', 'GNU Library General Public License (LGPL)', 'MIT license', 'Mozilla Public License 2.0', 'Common Development and Distribution License', 'Eclipse Public License version 2.0', 'None']
+        choices: ['Apache License 2.0', 'BSD 3-Clause license', 'BSD 2-Clause license', 'GNU General Public License (GPL)', 'GNU Library General Public License (LGPL)', 'MIT license', 'Mozilla Public License 2.0', 'IBM Public License Version 1.0', 'Eclipse Public License version 1.0', 'None']
     }
 ]
 
