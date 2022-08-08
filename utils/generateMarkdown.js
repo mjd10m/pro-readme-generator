@@ -8,21 +8,28 @@ function renderLicenseLink(license) {}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
-
+function renderLicenseSection(license) {
+  if(license === '') {
+    return ''
+  } else {
+    let licenseBadge = renderLicenseBadge(license)
+    let licenseURL = renderLicenseLink(license)
+    return `
+    ## License
+    ${license} 
+    `
+  }
+}
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
+  const {creator, creatorGithub, collab} = data.contributers
+  const {title, description, installinstrc, use, test, license} = data.content
   return `
-  # ${data.title}
+  # ${title}
 
   ## Description
-
-  Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
-  - What was your motivation?
-  - Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-  - What problem does it solve?
-  - What did you learn?
+  
+  ${description}
 
   ## Table of Contents
 
@@ -37,7 +44,7 @@ function generateMarkdown(data) {
 
   ## Installation
 
-  What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+  ${installinstrc}
 
   ## Usage
 
