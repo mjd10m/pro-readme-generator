@@ -4,9 +4,7 @@ const licenseURLArr = ['(https://opensource.org/licenses/Apache-2.0)', '(https:/
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  console.log(license)
   let searchIndex = licenseRefArr.indexOf(license)
-  console.log(searchIndex)
   let badge = licenseBadgeArr[searchIndex]
   return badge 
 }
@@ -39,10 +37,20 @@ return `
 `
 }
 }
+
+function addtlCollaborator(collabArr) {
+  let collabs = collabArr.map(collaborator => {
+return `
+${collaborator.collabName} [GitHub](https://github.com/${collaborator.collabGithub})  
+`
+  })
+  .join('')
+  return collabs
+}
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  console.log(data)
-  const {creator, creatorGithub, collab} = data.contributers
+  const {creator, creatorGithub, creatorEmail, collab} = data.contributers
   const {title, description, installInstrc, use, test, license} = data.content
 return `
 # ${title}
@@ -72,8 +80,8 @@ ${use}
 
 ## Credits
 
-${creator} [GitHub](${creatorGithub})
-
+${creator} [GitHub](https://github.com/${creatorGithub})
+${addtlCollaborator(collab)}
 
 ${renderLicenseSection(license)}
 
@@ -83,7 +91,7 @@ ${test}
 
 ## Questions
 
-If your project has a lot of features, list them here.
+If you have any further questions you can contact ${creator} at ${creatorEmail} or visit their [GitHub Page!](https://github.com/${creatorGithub})
 
 `;
 }

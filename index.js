@@ -30,6 +30,19 @@ const creatorQuestions = [
         }
     },
     {
+        type: 'input',
+        name: 'creatorEmail',
+        message: 'Enter your email address',
+        validate: nameInput => {
+            if(nameInput) {
+                return true
+            } else {
+                console.log('Please enter your email address!');
+                return false
+            }
+        }
+    },
+    {
         type: 'confirm',
             name: 'confirmAddCollabQuestions',
             message: 'Would you like to add any collaborators other than yourself?',
