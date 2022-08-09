@@ -20,32 +20,31 @@ function renderLicenseLink(license) {
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  if(license === 'None') {
-    return ''
+  let noneSelected = license.indexOf('None')
+  if(noneSelected != -1 || license.length === 0) {
+return `## License
+No license was used in this project.`
   } else {
-return `
-## License
-  
+return `## License  
 ${license.map(license => {
   let licenseBadge = renderLicenseBadge(license)
   let licenseURL = renderLicenseLink(license)
-return `
-[${license}]${licenseURL} ${licenseBadge}  
-`
+return `[${license}]${licenseURL} ${licenseBadge}  `
 }) 
-.join('')} 
-`
+.join('\r\n')}`
 }
 }
 
-function addtlCollaborator(collabArr) {
-  let collabs = collabArr.map(collaborator => {
-return `
-${collaborator.collabName} [GitHub](https://github.com/${collaborator.collabGithub})  
-`
+function addtlCollaborator(collabArr, creator, creatorGithub) {
+  if(collabArr === undefined) {
+return `${creator} [GitHub](https://github.com/${creatorGithub})`
+  } else {
+return `${creator} [GitHub](https://github.com/${creatorGithub})
+${collabArr.map(collaborator => {
+return `${collaborator.collabName} [GitHub](https://github.com/${collaborator.collabGithub})  `
   })
-  .join('')
-  return collabs
+  .join('\r\n')}`
+}
 }
 
 // TODO: Create a function to generate markdown for README
@@ -56,13 +55,9 @@ return `
 # ${title}
 
 ## Description
-
 ${description}
 
 ## Table of Contents
-
-If your README is long, add a table of contents to make it easy for users to find what they need.
-
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
@@ -71,26 +66,20 @@ If your README is long, add a table of contents to make it easy for users to fin
 - [Questions](#questions)
 
 ## Installation
-
 ${installInstrc}
 
 ## Usage
-
 ${use}
 
-## Credits
+## Testing
+${test}
 
-${creator} [GitHub](https://github.com/${creatorGithub})
-${addtlCollaborator(collab)}
+## Credits
+${addtlCollaborator(collab, creator, creatorGithub)}
 
 ${renderLicenseSection(license)}
 
-## Testing
-
-${test}
-
 ## Questions
-
 If you have any further questions you can contact ${creator} at ${creatorEmail} or visit their [GitHub Page!](https://github.com/${creatorGithub})
 
 `;
