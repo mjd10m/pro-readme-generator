@@ -1,34 +1,34 @@
 
-# cool stuff
-
+# ReadMe Generator
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)  
 ## Description
-this is cool
+This application generates quality readme files based on the best practices for such files
 
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
-- [Tests](#license)
+- [Tests](#testing)
 - [Questions](#questions)
 
 ## Installation
-npm i inquirer
+npm i inquirer@8.2.4
 
 ## Usage
-do cool things
+This application is meant to be used by developers to easily create README.md files
 
 ## Testing
-no
+No testing available as of today
 
 ## Credits
-michael [GitHub](https://github.com/mjd10m)
-alex  [GitHub](https://github.com/smittyfresh)  
-jeff [GitHub](https://github.com/jeffy)  
+john doe [GitHub](https://github.com/jdoe17)
+jane doe [GitHub](https://github.com/jadoe15)  
 
 ## License  
-[GNU General Public License (GPL)](https://www.gnu.org/licenses/gpl-3.0) ![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)  
+The following License(s) were used in the building of this project
+[MIT license](https://opensource.org/licenses/MIT)  
 
 ## Questions
-If you have any further questions you can contact michael at mjd10m@outlook.com or visit their [GitHub Page!](https://github.com/mjd10m)
+If you have any further questions you can contact john doe at jdoe17@gmail.com or visit their [GitHub Page!](https://github.com/jdoe17)
 

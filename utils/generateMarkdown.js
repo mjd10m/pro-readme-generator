@@ -4,9 +4,17 @@ const licenseURLArr = ['(https://opensource.org/licenses/Apache-2.0)', '(https:/
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
+  let noneSelected = license.indexOf('None')
+  if(noneSelected != -1 || license.length === 0) {
+return ``
+  } else {
+return `${license.map(license => {
   let searchIndex = licenseRefArr.indexOf(license)
   let badge = licenseBadgeArr[searchIndex]
-  return badge 
+return `${badge}  `
+  })
+  .join('\r\n')}`
+  }
 }
 
 // TODO: Create a function that returns the license link
@@ -26,10 +34,10 @@ return `## License
 No license was used in this project.`
   } else {
 return `## License  
+The following License(s) were used in the building of this project
 ${license.map(license => {
-  let licenseBadge = renderLicenseBadge(license)
   let licenseURL = renderLicenseLink(license)
-return `[${license}]${licenseURL} ${licenseBadge}  `
+return `[${license}]${licenseURL}  `
 }) 
 .join('\r\n')}`
 }
@@ -53,16 +61,16 @@ function generateMarkdown(data) {
   const {title, description, installInstrc, use, test, license} = data.content
 return `
 # ${title}
-
+${renderLicenseBadge(license)}
 ## Description
 ${description}
 
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
+- [Testing](#testing)
 - [Credits](#credits)
 - [License](#license)
-- [Tests](#license)
 - [Questions](#questions)
 
 ## Installation
